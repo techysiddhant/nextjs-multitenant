@@ -18,7 +18,16 @@ export default function middleware(req: NextRequest) {
   }`;
   console.log("path", path);
   console.log("search parans", searchParams);
-
+  if (hostname == `app.${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`) {
+    // if (!session && path !== "/login") {
+    //   return NextResponse.redirect(new URL("/login", req.url));
+    // } else if (session && path == "/login") {
+    //   return NextResponse.redirect(new URL("/", req.url));
+    // }
+    return NextResponse.rewrite(
+      new URL(`/app${path === "/" ? "" : path}`, req.url)
+    );
+  }
   if (
     hostname === "localhost:3000" ||
     hostname === process.env.NEXT_PUBLIC_ROOT_DOMAIN
