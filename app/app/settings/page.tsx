@@ -2,7 +2,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { authClient } from '@/lib/auth-client';
 import React from 'react'
-import { updateSubdomain } from '../actions';
+import { updateSubdomain } from '@/app/actions';
 
 const SettingPage = () => {
     const handleUserName = async (e: React.FormEvent<HTMLFormElement>) => {

@@ -3,8 +3,6 @@ import { Button } from "@/components/ui/button"
 import {
     Card,
     CardContent,
-    CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
@@ -33,6 +31,7 @@ const LoginPage = () => {
             <Card>
                 <CardHeader>
                     <CardTitle>Login</CardTitle>
+                    <h2>{pending ? "Logging in..." : "Login with Github"}</h2>
                 </CardHeader>
                 <CardContent>
                     <Button onClick={handleLogin}>Login via Github</Button>

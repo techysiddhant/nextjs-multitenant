@@ -6,9 +6,9 @@ import React from 'react'
 const getUser = async (username: string) => {
     return await db.select().from(user).where(eq(user.username, username))
 }
-const UserPages = async ({ params }: { params: { username: string } }) => {
-    const { username } = await params;
-    console.log(username);
+const UserPages = async (props: { params: Promise<{ username: string }> }) => {
+    const { username } = await props.params;
+    // console.log(username);
     const finalUsername = decodeURIComponent(username);
     const subdomain = finalUsername.endsWith(`.${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`)
         ? finalUsername.replace(`.${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`, "")
